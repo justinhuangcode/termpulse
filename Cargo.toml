@@ -34,7 +34,7 @@ ctrlc = "3.5"
 # Dev / bench dependencies
 assert_cmd = "2.0"
 predicates = "3.0"
-criterion = { version = "0.5", features = ["html_reports"] }
+criterion = { version = "0.8", features = ["html_reports"] }
 proptest = "1.5"
 
 # Release profile — optimized for small binary + fast execution
