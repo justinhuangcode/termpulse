@@ -37,7 +37,7 @@ jobs:
             archive: zip
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - uses: dtolnay/rust-toolchain@stable
         with:
@@ -78,7 +78,7 @@ jobs:
     name: Publish to crates.io
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@stable
       - name: Publish termpulse-core
         run: cargo publish -p termpulse-core
@@ -102,7 +102,7 @@ jobs:
     needs: [build, publish]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - uses: actions/download-artifact@v4
         with:
