@@ -1,12 +1,17 @@
 # termpulse
 
-[![CI](https://img.shields.io/github/actions/workflow/status/justinhuangcode/termpulse/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/justinhuangcode/termpulse/actions)
-[![Crates.io](https://img.shields.io/crates/v/termpulse?style=flat-square&logo=rust&logoColor=white)](https://crates.io/crates/termpulse)
+**English** | [中文](./README_CN.md)
+
+[![CI](https://github.com/justinhuangcode/termpulse/actions/workflows/ci.yml/badge.svg)](https://github.com/justinhuangcode/termpulse/actions/workflows/ci.yml)
+[![Release](https://github.com/justinhuangcode/termpulse/actions/workflows/release.yml/badge.svg)](https://github.com/justinhuangcode/termpulse/actions/workflows/release.yml)
+[![Crates.io](https://img.shields.io/crates/v/termpulse?style=flat-square)](https://crates.io/crates/termpulse)
 [![docs.rs](https://img.shields.io/docsrs/termpulse?style=flat-square&logo=docs.rs&logoColor=white)](https://docs.rs/termpulse)
-[![License](https://img.shields.io/crates/l/termpulse?style=flat-square)](LICENSE)
-[![Rust](https://img.shields.io/badge/rust-1.85%2B-orange?style=flat-square&logo=rust&logoColor=white)](https://www.rust-lang.org)
-[![GitHub Stars](https://img.shields.io/github/stars/justinhuangcode/termpulse?style=flat-square)](https://github.com/justinhuangcode/termpulse/stargazers)
-[![Last Commit](https://img.shields.io/github/last-commit/justinhuangcode/termpulse?style=flat-square)](https://github.com/justinhuangcode/termpulse/commits)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
+[![Rust](https://img.shields.io/badge/rust-1.85%2B-orange.svg?style=flat-square&logo=rust&logoColor=white)](https://www.rust-lang.org)
+[![GitHub Stars](https://img.shields.io/github/stars/justinhuangcode/termpulse?style=flat-square&logo=github)](https://github.com/justinhuangcode/termpulse/stargazers)
+[![Last Commit](https://img.shields.io/github/last-commit/justinhuangcode/termpulse?style=flat-square)](https://github.com/justinhuangcode/termpulse/commits/main)
+[![Issues](https://img.shields.io/github/issues/justinhuangcode/termpulse?style=flat-square)](https://github.com/justinhuangcode/termpulse/issues)
+[![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey?style=flat-square)](https://github.com/justinhuangcode/termpulse)
 
 Native terminal progress indicators via [OSC 9;4](https://conemu.github.io/en/AnsiEscapeCodes.html#ConEmu_specific_OSC) — with smart terminal detection, graceful fallback, and zero configuration.
 
@@ -49,7 +54,7 @@ termpulse detects the terminal, picks the best output method, and falls back gra
 - **Signal handling** — installs `ctrlc` handler in `wrap` mode to always clear the progress indicator before exit, even on Ctrl+C
 - **`NO_COLOR` support** — respects the [no-color.org](https://no-color.org/) convention; `TERMPULSE_FORCE` overrides when needed
 - **`no_std` core** — `termpulse-core` has zero dependencies, `#![no_std]`, `forbid(unsafe_code)`; works in embedded, WASM, and FFI contexts
-- **Dependency injection** — all I/O goes through traits (`Backend`, `EnvLookup`, `Write`); 102 tests with full mock coverage
+- **Dependency injection** — all I/O goes through traits (`Backend`, `EnvLookup`, `Write`); 111 tests with full mock coverage
 
 ## Installation
 
@@ -79,7 +84,7 @@ cd termpulse
 cargo install --path crates/termpulse-cli
 ```
 
-**Requirements**: Rust 1.85+
+**Requirements:** Rust 1.85+
 
 ## Quick Start
 
@@ -273,8 +278,9 @@ termpulse/
 │   │       └── backend/                # OSC, tmux, ASCII, silent backends
 │   └── termpulse-cli/                  # CLI binary
 │       ├── src/cmd/                    # set, start, done, fail, wrap, pipe, clear, detect
-│       └── tests/cli_integration.rs    # 17 integration tests (assert_cmd)
+│       └── tests/cli_integration.rs    # 20 integration tests (assert_cmd)
 ├── CHANGELOG.md
+├── CONTRIBUTING.md                     # Contribution guidelines
 ├── AGENTS.md                           # Developer guidelines
 ├── LICENSE                             # MIT
 └── README.md
@@ -288,13 +294,17 @@ termpulse/
 - **150ms throttle** — balances visual smoothness with terminal performance; state and label changes bypass the timer
 - **Conservative multiplexer support** — tmux passthrough is enabled (well-supported since tmux 3.3+); GNU screen passthrough is disabled (too unreliable across versions)
 
+## Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for release history.
 
-## Contributing
+## Acknowledgments
 
-Contributions are welcome. See [AGENTS.md](AGENTS.md) for project conventions, architecture, and how to add terminals, backends, and CLI commands.
+Inspired by [osc-progress](https://github.com/steipete/osc-progress).
 
 ## License
 
