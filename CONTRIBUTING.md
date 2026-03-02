@@ -7,47 +7,54 @@ you need to get started.
 
 - Rust 1.85+ (MSRV)
 - Git
+- [just](https://github.com/casey/just) (optional, recommended)
 
 ## Getting Started
 
 ```bash
 git clone https://github.com/justinhuangcode/termpulse.git
 cd termpulse
-cargo test --workspace
+just test                # or: cargo test --workspace
 ```
 
 ## Development Workflow
 
+A [justfile](justfile) is provided for common tasks. Install `just` with
+`cargo install just`, then use the recipes below. Equivalent `cargo` commands
+are shown for contributors who prefer not to install `just`.
+
 ### Running Tests
 
 ```bash
-# All tests
-cargo test --workspace
-
-# Specific crate
-cargo test -p termpulse-core
-
-# Property-based tests (slow, more iterations)
-cargo test -p termpulse-core --test proptest_core
+just test                # or: cargo test --workspace
+just test-features       # or: cargo test -p termpulse-core --no-default-features
+                         #     cargo test -p termpulse-core --all-features
+just check-no-std        # or: cargo check -p termpulse-core --target thumbv7m-none-eabi
 ```
 
 ### Linting
 
 ```bash
-cargo clippy --workspace --all-targets -- -D warnings
-cargo fmt --all -- --check
+just clippy              # or: cargo clippy --workspace --all-targets -- -D warnings
+just fmt                 # or: cargo fmt --all -- --check
 ```
 
 ### Benchmarks
 
 ```bash
-cargo bench -p termpulse-core
+just bench               # or: cargo bench -p termpulse-core
 ```
 
 ### Documentation
 
 ```bash
-cargo doc --workspace --no-deps --open
+just doc                 # or: RUSTDOCFLAGS="-D warnings" cargo doc --workspace --no-deps
+```
+
+### Run All Checks
+
+```bash
+just check-all           # runs test, clippy, fmt, doc in sequence
 ```
 
 ## Project Structure
@@ -87,7 +94,7 @@ test: add proptest for write/parse round-trip
 
 1. Fork the repository and create a feature branch
 2. Make your changes with tests
-3. Ensure all checks pass: `cargo test --workspace && cargo clippy --workspace --all-targets -- -D warnings && cargo fmt --all -- --check`
+3. Ensure all checks pass: `just check-all` (or run test, clippy, fmt, doc manually)
 4. Open a PR against `main`
 5. Fill out the PR template
 
