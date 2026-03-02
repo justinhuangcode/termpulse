@@ -93,6 +93,9 @@ jobs:
   semver:
     name: Semver
     runs-on: ubuntu-latest
+    # Only runs after crates are published to crates.io for the first time.
+    # Remove continue-on-error after the initial v0.1.0 release.
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v6
       - uses: obi1kenobi/cargo-semver-checks-action@v2

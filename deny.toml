@@ -3,10 +3,8 @@
 # Docs: https://embarkstudios.github.io/cargo-deny/
 
 [advisories]
-vulnerability = "deny"
-unmaintained = "warn"
+unmaintained = "workspace"
 yanked = "warn"
-notice = "warn"
 
 [licenses]
 unlicensed = "deny"
