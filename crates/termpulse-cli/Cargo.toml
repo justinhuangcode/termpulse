@@ -1,0 +1,35 @@
+[package]
+name = "termpulse-cli"
+description = "CLI for native terminal progress indicators — wrap commands, pipe progress, detect capabilities."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation = "https://docs.rs/termpulse-cli"
+readme = "README.md"
+keywords = ["terminal", "progress", "osc", "cli"]
+categories = ["command-line-utilities"]
+exclude = ["tests/"]
+
+[lints]
+workspace = true
+
+[dependencies]
+termpulse.workspace = true
+termpulse-core.workspace = true
+anyhow.workspace = true
+clap.workspace = true
+clap_complete.workspace = true
+ctrlc.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+
+[dev-dependencies]
+assert_cmd.workspace = true
+predicates.workspace = true
+
+[[bin]]
+name = "termpulse"
+path = "src/main.rs"

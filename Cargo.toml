@@ -1,0 +1,66 @@
+[workspace]
+resolver = "2"
+members = ["crates/*"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+authors = ["Justin Huang"]
+description = "Native terminal progress indicators via OSC 9;4"
+license = "MIT"
+repository = "https://github.com/justinhuangcode/termpulse"
+homepage = "https://github.com/justinhuangcode/termpulse"
+keywords = ["terminal", "progress", "osc", "cli"]
+categories = ["command-line-utilities", "command-line-interface"]
+
+[workspace.dependencies]
+# Internal crates
+termpulse-core = { version = "0.1.0", path = "crates/termpulse-core" }
+termpulse = { version = "0.1.0", path = "crates/termpulse" }
+
+# Error handling
+anyhow = "1.0"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# CLI
+clap = { version = "4.5", features = ["derive", "env"] }
+clap_complete = "4.5"
+ctrlc = "3.4"
+
+# Dev / bench dependencies
+assert_cmd = "2.0"
+predicates = "3.0"
+criterion = { version = "0.5", features = ["html_reports"] }
+proptest = "1.5"
+
+# Release profile — optimized for small binary + fast execution
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true
+
+[workspace.lints.rust]
+rust_2018_idioms = { level = "warn", priority = -1 }
+unsafe_code = "deny"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+correctness = { level = "deny", priority = -1 }
+dbg_macro = "warn"
+print_stdout = "warn"
+print_stderr = "warn"
+# Select pedantic lints for API and code quality
+cloned_instead_of_copied = "warn"
+explicit_iter_loop = "warn"
+explicit_into_iter_loop = "warn"
+inconsistent_struct_constructor = "warn"
+manual_ok_or = "warn"
+doc_markdown = "warn"
+missing_errors_doc = "warn"
+missing_panics_doc = "warn"
+semicolon_if_nothing_returned = "warn"
+unnecessary_wraps = "warn"

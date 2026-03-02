@@ -1,0 +1,55 @@
+name: Bug Report
+description: Report a bug or unexpected behavior
+labels: [bug]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened? What did you expect?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps to reproduce the issue.
+      placeholder: |
+        1. Run `termpulse detect --json`
+        2. ...
+    validations:
+      required: true
+
+  - type: input
+    id: terminal
+    attributes:
+      label: Terminal
+      description: Which terminal are you using?
+      placeholder: "e.g., Ghostty 1.0, WezTerm 20240101, iTerm2 3.5"
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      description: Operating system and version.
+      placeholder: "e.g., macOS 15.2, Ubuntu 24.04, Windows 11"
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: termpulse version
+      description: Output of `termpulse --version`.
+    validations:
+      required: true
+
+  - type: textarea
+    id: detect_output
+    attributes:
+      label: "Output of `termpulse detect --json`"
+      description: Paste the JSON output here.
+      render: json

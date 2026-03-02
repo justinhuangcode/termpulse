@@ -1,0 +1,39 @@
+[package]
+name = "termpulse-core"
+description = "Core OSC 9;4 terminal progress protocol — build, parse, and sanitize escape sequences. No-std compatible, zero dependencies."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation = "https://docs.rs/termpulse-core"
+readme = "README.md"
+keywords = ["osc", "terminal", "progress", "escape-sequence", "no-std"]
+categories = ["no-std", "encoding", "parsing"]
+exclude = ["benches/", "tests/", "fuzz/"]
+
+[features]
+# Enable std::error::Error impl for WriteError.
+# Default is off — this crate is no_std by default.
+std = []
+
+[lints]
+workspace = true
+
+# Zero dependencies — this is intentional.
+# termpulse-core must remain no_std compatible and dependency-free
+# so it can be embedded in any context (WASM, embedded, FFI).
+[dependencies]
+
+[dev-dependencies]
+criterion.workspace = true
+proptest.workspace = true
+
+[[bench]]
+name = "core_bench"
+harness = false
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]

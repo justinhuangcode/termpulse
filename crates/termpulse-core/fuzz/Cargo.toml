@@ -1,0 +1,31 @@
+[package]
+name = "termpulse-core-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+termpulse-core = { path = ".." }
+
+# Prevent this from interfering with workspaces
+[workspace]
+members = ["."]
+
+[[bin]]
+name = "fuzz_find_sequences"
+path = "fuzz_targets/fuzz_find_sequences.rs"
+doc = false
+
+[[bin]]
+name = "fuzz_sanitize_label"
+path = "fuzz_targets/fuzz_sanitize_label.rs"
+doc = false
+
+[[bin]]
+name = "fuzz_strip_sequences"
+path = "fuzz_targets/fuzz_strip_sequences.rs"
+doc = false

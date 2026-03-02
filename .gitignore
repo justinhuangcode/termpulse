@@ -1,0 +1,26 @@
+# Rust build artifacts
+/target/
+**/*.rs.bk
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+
+# Fuzz testing
+**/fuzz/corpus/
+**/fuzz/artifacts/
+**/*.profraw
+
+# Property testing
+**/*.proptest-regressions

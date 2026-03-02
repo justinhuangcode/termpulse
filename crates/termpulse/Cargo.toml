@@ -1,0 +1,20 @@
+[package]
+name = "termpulse"
+description = "Native terminal progress indicators via OSC 9;4 — with smart detection, graceful fallback, throttling, and stall detection."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation = "https://docs.rs/termpulse"
+readme = "README.md"
+keywords = ["terminal", "progress", "osc", "cli", "progress-bar"]
+categories = ["command-line-interface", "command-line-utilities"]
+exclude = ["examples/"]
+
+[lints]
+workspace = true
+
+[dependencies]
+termpulse-core = { workspace = true, features = ["std"] }
