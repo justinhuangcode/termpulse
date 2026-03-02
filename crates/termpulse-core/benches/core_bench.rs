@@ -2,7 +2,8 @@
 //!
 //! Run with: cargo bench -p termpulse-core
 
-use criterion::{Criterion, black_box, criterion_group, criterion_main};
+use criterion::{Criterion, criterion_group, criterion_main};
+use std::hint::black_box;
 use termpulse_core::{
     OscSequence, ProgressState, Terminator, find_sequences, sanitize_label, strip_sequences,
 };
