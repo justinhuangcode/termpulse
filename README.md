@@ -1,4 +1,4 @@
-# termpulse
+# TermPulse
 
 **English** | [中文](./README_CN.md)
 
@@ -13,9 +13,9 @@
 [![Issues](https://img.shields.io/github/issues/justinhuangcode/termpulse?style=flat-square)](https://github.com/justinhuangcode/termpulse/issues)
 [![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey?style=flat-square)](https://github.com/justinhuangcode/termpulse)
 
-Native terminal progress indicators via [OSC 9;4](https://conemu.github.io/en/AnsiEscapeCodes.html#ConEmu_specific_OSC) — with smart terminal detection, graceful fallback, and zero configuration.
+A native terminal progress indicator CLI for smart detection, graceful fallback, and zero configuration. 📊
 
-## Why termpulse?
+## Why TermPulse?
 
 Build tools, CI pipelines, and download scripts need to show progress. But terminal progress is harder than it looks:
 
