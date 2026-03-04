@@ -1,4 +1,4 @@
-# termpulse
+# TermPulse
 
 [English](./README.md) | **中文**
 
@@ -13,9 +13,9 @@
 [![Issues](https://img.shields.io/github/issues/justinhuangcode/termpulse?style=flat-square)](https://github.com/justinhuangcode/termpulse/issues)
 [![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey?style=flat-square)](https://github.com/justinhuangcode/termpulse)
 
-通过 [OSC 9;4](https://conemu.github.io/en/AnsiEscapeCodes.html#ConEmu_specific_OSC) 实现原生终端进度指示器 — 智能终端检测、优雅降级、零配置。
+原生终端进度指示命令行工具，支持智能检测、优雅回退与零配置。 📊
 
-## 为什么选择 termpulse？
+## 为什么选择 TermPulse？
 
 构建工具、CI 管道和下载脚本都需要显示进度。但终端进度比想象中要难：
 
