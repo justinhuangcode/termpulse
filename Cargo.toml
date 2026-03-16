@@ -32,7 +32,7 @@ clap_complete = "4.5"
 ctrlc = "3.5"
 
 # Dev / bench dependencies
-assert_cmd = "2.0"
+assert_cmd = "2.2"
 predicates = "3.0"
 criterion = { version = "0.8", features = ["html_reports"] }
 proptest = "1.5"
